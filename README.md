@@ -5,6 +5,8 @@ Java 11 set of methods for testing the Java Reflection API
 
 The source codes of the classes can be found in _l1\src\ReflectionExplore\_
 
+___
+
 # Task 1
 In the Task1.java method: 
 `public static String getClassDescription(String className)`
