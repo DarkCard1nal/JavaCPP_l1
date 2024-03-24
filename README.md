@@ -8,10 +8,15 @@ The source codes of the classes can be found in _l1\src\ReflectionExplore\_
 ___
 
 # Task 1
+
 In the Task1.java method: 
+
 `public static String getClassDescription(String className)`
+
 `public static String getClassDescription(Class<?> classOb)`
+
 `getClassDescription` returns a string with its complete description: the name of the package in which the class is defined, modifiers and the name of the analyzed class, its base class, a list of implemented interfaces, and a list of all fields, constructors, and methods declared in the class and their characteristics.
+
 Task1UI.java implements a graphical interface for the getClassDescription method of the Task1 class using `Swing` and `AWT`.
 
 ## Example:
@@ -46,11 +51,17 @@ public final class String implements Serializable, Comparable, CharSequence, Con
 ![image](https://github.com/DarkCard1nal/JavaCPP_l1/assets/34416583/fb2a22cf-1b12-479f-b9a5-0e815ba69427)
 
 # Task 2
+
 In Task2.java, methods are implemented:
+
 `public static String inspect(Object obj)`
+
 `inspect` - returns a string with its real type and state - a list of all fields declared in the class, along with their values, as well as a list of public methods declared in the class.
+
 `public static String invokeMethod(Object obj, String methodName)`
+
 `invokeMethod` - calls an open method without parameters named methodName on the obj object, returns the results of its execution, or an error if such a method without parameters is not found.
+
 The errors `"java.lang.reflect.InaccessibleObjectException: Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "open java.lang" to module l1"` and similar errors when executing the invokeMethod method are related to the Java platform module system that was introduced in Java 9, in particular its implementation of strong encapsulation. It allows access only under certain conditions, and does not allow reflection to setAccessible for JDK modules, making them immutable. More information and solutions are available here: 
 https://stackoverflow.com/questions/41265266/how-to-solve-inaccessibleobjectexception-unable-to-make-member-accessible-m
 
@@ -77,8 +88,11 @@ Public methods:
 ```
 
 # Task 3
+
 In Task3.java methods:
+
 `public static String callMethod(Object obj, String methodName, Object... args)`
+
 `callMethod` - calls the method methodName on obj with parameters args, returns the results of its execution, or a FunctionNotFoundException.
 
 ## Example:
@@ -103,20 +117,35 @@ ReflectionExplore.FunctionNotFoundException: Method nonExistentMethod not found
 ```
 
 # Task 4
+
 In Task4.java methods:
+
 `public static <T> T[] createArray(Class<T> type, int size)`
+
 `createArray` - creates and returns a one-dimensional array of `type` `size`.
+
 `public static <T> T[] resizeArray(T[] array, int newSize)`
+
 `resizeArray` - returns a one-dimensional array of `array` with the resized size `newSize`.
+
 `public static <T> String toString(T[] array)`
+
 `toString` - converts and returns a one-dimensional `array` to a string.
+
 `public static <T> T[][] createMatrix(Class<T> type, int rows, int cols)`
+
 `createMatrix` - creates and returns a matrix (two-dimensional array) of type with `rows` - the number of rows, `cols` - the number of columns.
+
 `public static <T> T[][] resizeMatrix(T[][] matrix, int newRows, int newCols)`
+
 `resizeMatrix` - returns a `matrix` with the changed number of rows `newRows` and columns `newCols`.
+
 `public static <T> String toString(T[][] matrix)`
+
 `toString` - converts and returns a `matrix` to a string.
+
 `public static <T> void printMatrix(T[][] matrix)`
+
 `printMatrix` - prints a `matrix` to the console.
 
 ## Example:
@@ -154,9 +183,13 @@ In Task4.java methods:
 ```
 
 # Task 5
+
 In the Task5.java:
+
 `class Task5` - testing the program.
+
 `class Function1`, `Function2` - mathematical functions.
+
 `class MethodProfiler implements InvocationHandler` creates and uses proxy objects, profiles the execution time of methods. The `invoke` method is called every time the method of the object that is represented by the proxy is called. 
 
 ## Example:
@@ -186,6 +219,7 @@ F2: 1.0
 ```
 
 # Task 6 (bonus 1)
+
 Task6.java is a console program that allows you to view the list of constructors of a class specified during program operation, select the desired constructor and create an object of this class, then view the list of all class methods and select the desired method. The program uses the code from previous tasks (the `java.lang.reflect.InaccessibleObjectException` error is described in `Task 2`).
 
 ## Example:
